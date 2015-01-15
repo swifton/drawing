@@ -16,7 +16,15 @@ function picture(color, namexyu) {
       var par = this.parameters[command[2]];
       if (command[4] == '-') par = -par;
       if (command[3] == 'x') {par = [par, 0];}
-      else {par = [0, par];}
+      else if (command[3] == 'y') {par = [0, par];}
+      else if (command[3] == 'xy') {
+        sign1 = 1;
+        sign2 = 1;
+        if (command[4][0] == '-') sign1 = -1;
+        if (command[4][1] == '-') sign2 = -1;
+        par = [par * sign1, par * sign2];
+      }
+      else {console.log("The generating function for " + this.namexyu + " is fucked up!");}
       this.points[command[0]] = add(this.points[command[1]], par);
   }
 
