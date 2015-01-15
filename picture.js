@@ -1,19 +1,23 @@
 function picture(color, namexyu) {
   this.parameters = [];
   this.genFunc = [];
-  this.points = [];
+  this.points = [[0, 0]];
   this.elements = [];
   this.color = color;
   this.namexyu = namexyu;
 
   this.generate = generate;
   function generate() {
-    for (i in genFunc) this.evaluate(genFunc(i));
+    for (i in this.genFunc) this.evaluate(this.genFunc[i]);
   }
 
   this.evaluate = evaluate;
   function evaluate(command) {
-      this.points[command[1]] = add(this.points[old], par)
+      var par = this.parameters[command[2]];
+      if (command[4] == '-') par = -par;
+      if (command[3] == 'x') {par = [par, 0];}
+      else {par = [0, par];}
+      this.points[command[0]] = add(this.points[command[1]], par);
   }
 
   this.check = check;
