@@ -9,6 +9,7 @@
     </svg>
 
     <script src="elements.js"></script> 
+    <script src="picture.js"></script> 
     <script src="drawings.js"></script> 
     <script src="main.js"></script> 
   </body>  

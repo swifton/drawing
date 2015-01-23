@@ -1,3 +1,5 @@
+// premature optimization
+
 function picture(color, namexyu) {
   this.parameters = [];
   this.genFunc = [];
