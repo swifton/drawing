@@ -16,3 +16,37 @@ house.genFunc = [[1, 0, 0, 'x', '+'], [2, 1, 1, 'y', '-'], [3, 2, 0, 'x', '-'], 
 house.generate();
 house.elements = [['line', 0, 1], ['line', 1, 2], ['line', 2, 3], ['line', 0, 3], ['line', 3, 4], ['line', 4, 2], ['line', 6, 7], ['line', 7, 8], ['line', 8, 9], ['line', 9, 10], ['line', 10, 11], ['line', 11, 12], ['line', 12, 13], ['line', 9, 13], ['line', 11, 7], ['line', 13, 6]];
 house.check();
+
+
+function addv(p1, p2) {
+  return [p1[0] + p2[0], p1[1] + p2[1]];
+}
+
+function ironn(x, y, scale) {
+  var color = [0, 0, 0];
+  var height = scale * 10;
+  var baseH = scale * 7;
+  var handleH = height - baseH;
+  var length = scale * 25;
+  var smallL = scale * 20;
+  var handleL = scale * 16;
+  var handleOffset = scale * 2; 
+  
+  var baseLB = [x, y + height];
+  var baseRB = [x + length, y + height];
+  var baseLT = [x + length - smallL, y + height - baseH];
+  var baseRT = [x + length, y  + height - baseH];
+  var handleLB = addv(baseLT, [handleOffset,0]);
+  var handleRB = addv(baseRT, [-handleOffset, 0]);
+  var handleLT = addv(handleLB, [0, -handleH]);
+  var handleRT = addv(handleRB, [0, -handleH]);
+  
+  line(baseLB, baseRB, color); // iron
+  line(baseLB, baseLT, color);
+  line(baseRB, baseRT, color);
+  line(baseLT, baseRT, color);
+
+  line(handleLB, handleLT, color); // hanldle
+  line(handleRB, handleRT, color);
+  line(handleLT, handleRT, color);
+}
