@@ -18,7 +18,7 @@ house.elements = [['line', 0, 1], ['line', 1, 2], ['line', 2, 3], ['line', 0, 3]
 house.check();
 
 
-function addv(p1, p2) {
+function add(p1, p2) {
   return [p1[0] + p2[0], p1[1] + p2[1]];
 }
 
@@ -29,17 +29,17 @@ function ironn(x, y, scale) {
   var handleH = height - baseH;
   var length = scale * 25;
   var smallL = scale * 20;
-  var handleL = scale * 16;
   var handleOffset = scale * 2; 
   
-  var baseLB = [x, y + height];
-  var baseRB = [x + length, y + height];
-  var baseLT = [x + length - smallL, y + height - baseH];
-  var baseRT = [x + length, y  + height - baseH];
-  var handleLB = addv(baseLT, [handleOffset,0]);
-  var handleRB = addv(baseRT, [-handleOffset, 0]);
-  var handleLT = addv(handleLB, [0, -handleH]);
-  var handleRT = addv(handleRB, [0, -handleH]);
+  var origin = [x, y];
+  var baseLB = add(origin, [0, height]);
+  var baseRB = add(baseLB, [length, 0]);
+  var baseLT = add(baseRB, [- smallL, - baseH]);
+  var baseRT = add(baseRB, [0, - baseH]);
+  var handleLB = add(baseLT, [handleOffset,0]);
+  var handleRB = add(baseRT, [-handleOffset, 0]);
+  var handleLT = add(handleLB, [0, -handleH]);
+  var handleRT = add(handleRB, [0, -handleH]);
   
   line(baseLB, baseRB, color); // iron
   line(baseLB, baseLT, color);
@@ -50,3 +50,53 @@ function ironn(x, y, scale) {
   line(handleRB, handleRT, color);
   line(handleLT, handleRT, color);
 }
+
+function houseWindow(x, y, length, height) {
+  var halfH = [0, height / 2];
+  var halfL = [length / 2, 0];
+  var color = [0, 0, 0];
+
+  var LT = [x, y];
+  var LM = add(LT, halfH);
+  var LB = add(LM, halfH);
+  var BM = add(LB, halfL);
+  var RB = add(BM, halfL);
+  var TM = add(LT, halfL);
+  var RT = add(TM, halfL);
+  var RM = add(RT, halfH);
+
+  line(LT, RT, color);
+  line(LB, RB, color);
+  line(LT, LB, color);
+  line(RT, RB, color);
+  line(LM, RM, color);
+  line(TM, BM, color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

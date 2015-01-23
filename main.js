@@ -3,3 +3,5 @@ iron.draw(200, 200, 5, 5);
 house.draw(400, 200, 5, 5);
 
 ironn(600, 200, 5);
+
+houseWindow(200, 400, 20, 30);
