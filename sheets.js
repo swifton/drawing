@@ -18,6 +18,8 @@ function shit() {
 
 function shit1() {
   texture(20, 20, 100, 100);
+  texturedWheel(650, 150, 50);
+  texturedWheel(450, 150, 100);
 }
 
 function houses() {

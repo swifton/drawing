@@ -19,16 +19,7 @@ function premOpt() {
   housee.check();
 }
 
-function add(p1, p2) {
-  return [p1[0] + p2[0], p1[1] + p2[1]];
-}
-
-function sub(p1, p2) {
-  return add(p1, [-p2[0], -p2[1]]);
-}
-
 function iron(x, y, scale) {
-  var color = [0, 0, 0];
   var height = scale * 10;
   var baseH = scale * 7;
   var handleH = height - baseH;
@@ -42,24 +33,14 @@ function iron(x, y, scale) {
   var baseLT = add(baseRB, [- smallL, - baseH]);
   var baseRT = add(baseRB, [0, - baseH]);
   var handleLB = add(baseLT, [handleOffset,0]);
-  var handleRB = add(baseRT, [-handleOffset, 0]);
-  var handleLT = add(handleLB, [0, -handleH]);
-  var handleRT = add(handleRB, [0, -handleH]);
   
-  line(baseLB, baseRB, color); // iron
-  line(baseLB, baseLT, color);
-  line(baseRB, baseRT, color);
-  line(baseLT, baseRT, color);
-
-  line(handleLB, handleLT, color); // hanldle
-  line(handleRB, handleRT, color);
-  line(handleLT, handleRT, color);
+  fourGon(baseLT, baseRT, baseLB, baseRB);
+  rectangle(handleLB, smallL - handleOffset * 2, -handleH);
 }
 
 function houseWindow(x, y, length, height) {
   var halfH = height / 2;
   var halfL = length / 2;
-  var color = [0, 0, 0];
 
   var LT = [x, y];
   var LM = add(LT, [0, halfH]);
@@ -67,23 +48,9 @@ function houseWindow(x, y, length, height) {
   var TM = add(LT, [halfL, 0]);
   var RM = add(TM, [halfL, halfH]);
 
-  rectangle(LT, length, height, color);
-  line(LM, RM, color);
-  line(TM, BM, color);
-}
-
-function rectangle(LT, length, height, color) {
-  var LB = add(LT, [0, height]);
-  var RB = add(LB, [length, 0]);
-  var RT = add(LT, [length, 0]);
-
-  fourGon(LT, RT, LB, RB, color);
-}
-
-function triangle(x, y, z, color) {
-  line(x, y, color);
-  line(y, z, color);
-  line(z, x, color);
+  rectangle(LT, length, height);
+  line(LM, RM);
+  line(TM, BM);
 }
 
 function house(x, y, length, height, roofH, windowsX, windowsY) {
@@ -105,38 +72,18 @@ function house(x, y, length, height, roofH, windowsX, windowsY) {
   }
 }
 
-function roundedRectangle(LT, length, height, radius, color) {
-  var LB = add(LT, [0, height]);
-  var RB = add(LB, [length, 0]);
-  var RT = add(LT, [length, 0]);
-
-  line(LT, RT, color);
-  line(LB, RB, color);
-  line(LT, LB, color);
-  line(RT, RB, color);
-
-  // unfinished
-}
-
-function fourGon(LT, RT, LB, RB, color) {
-  line(LT, RT, color);
-  line(LB, RB, color);
-  line(LT, LB, color);
-  line(RT, RB, color);
-}
-
 function bikeWheel(x, y, r) {
   var color = [0, 0, 0];
   var center = [x, y];
  
   circle(x, y, r, color);
-  circle(x, y, r*(1 + 0.1), color);
+  circle(x, y, r * (1.1), color);
 
   var n = 19;
   var angle;
   for (i = 0; i < n; i++) {
     angle = i * (2 * Math.PI / n);
-    line(center, [x + r * Math.cos(angle), y + r * Math.sin(angle)], color);
+    line(center, pOnCir(center, r, angle), color);
   }
 }
 
@@ -181,6 +128,24 @@ function texture(x, y, width, height) {
 }
 
 
+
+function texturedWheel(x, y, r) {
+  bikeWheel(x, y, r);
+  var center = [x, y];
+ 
+  r1 = r * 1.1;
+  offset = Math.PI / 15;
+  var n = 40;
+ 
+  for (i = 0; i < n; i++) {
+    angle = i * (2 * Math.PI / n);
+    p1 = pOnCir(center, r, angle);
+    p2 = pOnCir(center, r1, angle - offset);
+    p3 = pOnCir(center, r1, angle + offset);
+    line(p1, p2, null, 1);
+    line(p1, p3, null, 1);
+  }
+}
 
 
 
