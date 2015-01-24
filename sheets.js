@@ -8,6 +8,7 @@ function premature() {
 
 function shit() {
   helmet(100, 100, 2);
+  axe(300, 200, 4);
   iron(600, 200, 5);
   houseWindow(200, 400, 20, 30);
   house(400, 400, 500, 100, 50, 5, 2);

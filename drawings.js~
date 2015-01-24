@@ -173,7 +173,7 @@ function helmet(x, y, scale) {
   var LB = add(center, [-r, 0]);
   var RB = add(center, [r, 0]);
   var angle1 = Math.PI / 7;
-  var angle2 = Math.PI / 4;
+  var angle2 = Math.PI / 3.5;
   var middle = Math.PI / 2;
   var LhornL = pOnCir(center, r, middle + angle2);
   var LhornR = pOnCir(center, r, middle + angle1);
@@ -190,6 +190,51 @@ function helmet(x, y, scale) {
   arc(RhornL, RhornT, r, 0, 0);
   arc(RhornR, RhornT, r, 0, 0);
 }
+
+function axe(x, y, scale) {
+  var handleLB = [x, y];
+  var length = scale * 30;
+  var thickness = scale;
+  var fixL = scale * 7;
+  var offset = scale/3;
+  var fixLB = add(handleLB, [- offset, -length]);
+  var fixLT = add(fixLB, [0, -fixL]);
+  var fixRT = add(fixLT, [thickness + 2*offset, 0]);
+  var fixRB = add(fixLB, [thickness + 2*offset, 0]);
+
+  var angle = Math.PI / 6;
+  var angleO = angle - Math.PI / 60;
+  var r0 = scale * 10;
+  var r1 = scale * 12;
+  var r2 = scale * 15;
+  var r3 = r0 * 0.9;
+
+  var bladeLB = pOnCir(fixLB, r0, Math.PI + angle);
+  var bladeLT = pOnCir(fixLT, r0, Math.PI - angle);
+  var bladeRT = pOnCir(fixRT, r0, angle);
+  var bladeRB = pOnCir(fixRB, r0, -angle);
+
+  var bladeOLB = pOnCir(fixLB, r3, Math.PI + angleO);
+  var bladeOLT = pOnCir(fixLT, r3, Math.PI - angleO);
+  var bladeORT = pOnCir(fixRT, r3, angleO);
+  var bladeORB = pOnCir(fixRB, r3, -angleO);
+
+  arc(fixLB, bladeLB, r1, 0, 0);
+  arc(fixRB, bladeRB, r1, 1, 0);
+  arc(fixLT, bladeLT, r1, 1, 0);
+  arc(fixRT, bladeRT, r1, 0, 0);
+
+  arc(bladeLB, bladeLT, r2, 1, 0);
+  arc(bladeRT, bladeRB, r2, 1, 0);
+  arc(bladeOLB, bladeOLT, r2, 1, 0);
+  arc(bladeORT, bladeORB, r2, 1, 0);
+
+  rectangle(handleLB, thickness, -length + offset);
+  rectangle(add(fixLB, [0, offset]), thickness + 2 * offset, -fixL - 2 * offset);
+}
+
+
+
 
 
 
