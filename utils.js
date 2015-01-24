@@ -7,5 +7,5 @@ function sub(p1, p2) {
 }
 
 function pOnCir(center, radius, angle) {
-  return add(center, [radius * Math.cos(angle), radius * Math.sin(angle)]);
+  return add(center, [radius * Math.cos(angle), -radius * Math.sin(angle)]);
 }

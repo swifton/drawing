@@ -167,7 +167,29 @@ function texturedLamp(x, y, scale) {
   }
 }
 
+function helmet(x, y, scale) {
+  var center = [x, y];
+  var r = scale * 20;
+  var LB = add(center, [-r, 0]);
+  var RB = add(center, [r, 0]);
+  var angle1 = Math.PI / 7;
+  var angle2 = Math.PI / 3.5;
+  var middle = Math.PI / 2;
+  var LhornL = pOnCir(center, r, middle + angle2);
+  var LhornR = pOnCir(center, r, middle + angle1);
+  var RhornL = pOnCir(center, r, middle - angle1);
+  var RhornR = pOnCir(center, r, middle - angle2);
+  var LhornT = pOnCir(center, 2*r, 4*Math.PI/6);
+  var RhornT = pOnCir(center, 2*r, 2*Math.PI/6);
 
+  line(LB, RB);
+  myarc(center, 0, Math.PI, r);
+
+  arc(LhornL, LhornT, r, 1, 0);
+  arc(LhornR, LhornT, r, 1, 0);
+  arc(RhornL, RhornT, r, 0, 0);
+  arc(RhornR, RhornT, r, 0, 0);
+}
 
 
 

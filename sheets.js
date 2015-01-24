@@ -7,11 +7,11 @@ function premature() {
 }
 
 function shit() {
+  helmet(100, 100, 2);
   iron(600, 200, 5);
   houseWindow(200, 400, 20, 30);
   house(400, 400, 500, 100, 50, 5, 2);
   //roundedRectangle([20, 20], 100, 100, 5, [175, 0, 0]);
-  arc(0, 0, 0, 0);
   bikeWheel(1000, 200, 50);
   lamp(1200, 400, 8);
 }

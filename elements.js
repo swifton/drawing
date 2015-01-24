@@ -26,13 +26,33 @@ function circle(x, y, r, color) {
   svg.appendChild(shape);
 }
 
+function pToS(p) {
+  return p[0].toString() + ", " + p[1].toString();
+}
 
-function arc(x, y, a1, a2, r, color) {
+function myarc(center, a1, a2, r) {
   var shape = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  var center = x.toString() + ", " + y.toString();
-  var start = 
+  var startP = pOnCir(center, r, a1);
+  var endP = pOnCir(center, r, a2);
+  var start = pToS(startP);
+  var end = pToS(endP);
+  var R = pToS([r, r]);
 
-  shape.setAttribute("d", "M " + start + " A " + "76,55" + " 0 1 0 " + "433,278");
+  shape.setAttribute("d", "M " + start + " A " + R + " 0 1 0 " + end);
+  shape.setAttribute("stroke", "black");
+  shape.setAttribute("stroke-width", 2);
+  shape.setAttribute("fill", "none");
+  svg.appendChild(shape);
+}
+
+function arc(start, end, r, or, large) {
+  var shape = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  var start = pToS(start);
+  var end = pToS(end);
+  var R = pToS([r, r]);
+
+
+  shape.setAttribute("d", "M " + start + " A " + R + " 0 " + large.toString() + " " + or.toString() + " " + end);
   shape.setAttribute("stroke", "black");
   shape.setAttribute("stroke-width", 2);
   shape.setAttribute("fill", "none");

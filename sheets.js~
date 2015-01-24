@@ -7,6 +7,7 @@ function premature() {
 }
 
 function shit() {
+  helmet(100, 100, 2);
   iron(600, 200, 5);
   houseWindow(200, 400, 20, 30);
   house(400, 400, 500, 100, 50, 5, 2);
@@ -16,7 +17,7 @@ function shit() {
   lamp(1200, 400, 8);
 }
 
-function shit1() {
+function texturing() {
   texture(20, 20, 100, 100);
   texturedWheel(650, 150, 50);
   texturedWheel(450, 150, 100);
