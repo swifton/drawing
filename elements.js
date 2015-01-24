@@ -1,12 +1,14 @@
 var svg = document.getElementById("svg");
 
-function style(color) {
-  return "stroke:rgb(" + color[0] + "," + color[1] + "," + color[2] + ");stroke-width:2"
+function style(color, thickness) {
+  thickness = thickness || 2;
+  return "stroke:rgb(" + color[0] + "," + color[1] + "," + color[2] + ");stroke-width:" + thickness.toString();
 }
 
-function line(point1, point2, color) {
+function line(point1, point2, color, thickness) {
+  color = color || [0, 0, 0];
   var shape = document.createElementNS("http://www.w3.org/2000/svg", "line");
-  shape.setAttribute("style", style(color));
+  shape.setAttribute("style", style(color, thickness));
   shape.setAttribute("x1", point1[0]);
   shape.setAttribute("x2", point2[0]);
   shape.setAttribute("y1", point1[1]);
@@ -35,3 +37,37 @@ function arc(x, y, a1, a2, r, color) {
   shape.setAttribute("fill", "none");
   svg.appendChild(shape);
 }
+
+function rect(x, y, wid, heit) {
+  var shape = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+  shape.setAttribute("x", x);
+  shape.setAttribute("y", y);
+  shape.setAttribute("width", wid);
+  shape.setAttribute("height", heit);
+  shape.setAttribute("fill", "white");
+  svg.appendChild(shape);
+}
+
+function clear() {
+  rect(0, 0, 2000, 2000);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

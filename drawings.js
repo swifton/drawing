@@ -163,6 +163,29 @@ function lamp(x, y, scale) {
   fourGon(topLT, topRT, topLB, topRB, color);
 }
 
+function texture(x, y, width, height) {
+  //rectangle([x, y], width, height, null);
+  var density = 2.5;
+  var l = width + height;
+  var x1, y1;
+
+  for (i = 0; i < width / density; i++) {
+    x1 = x + width - i * density;
+    y1 = y + i * density;
+    line([x1, y1], [x1 + 100, y1 + 100], null, 1);
+
+    x1 = x + width + i * density;
+    y1 = y + i * density;
+    line([x1, y1], [x1 - 100, y1 + 100], null, 1);
+  }
+}
+
+
+
+
+
+
+
 
 
 
