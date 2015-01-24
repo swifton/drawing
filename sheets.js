@@ -16,10 +16,11 @@ function shit() {
   lamp(1200, 400, 8);
 }
 
-function shit1() {
+function texturing() {
   texture(20, 20, 100, 100);
   texturedWheel(650, 150, 50);
   texturedWheel(450, 150, 100);
+  texturedLamp(800, 350, 8)
 }
 
 function houses() {

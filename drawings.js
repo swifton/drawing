@@ -87,14 +87,14 @@ function bikeWheel(x, y, r) {
   }
 }
 
-function lamp(x, y, scale) {
+function lamp(x, y, scale, wid, heit, topOffset, topheit) {
   var color = [0, 0, 175];
-  var width = 10 * scale;
-  var height = 40 * scale;
-  var topOffset = 2*scale;
+  var width = wid || 10 * scale;
+  var height = heit || 40 * scale;
+  var topOffset = topOffset || 2*scale;
   var baseH = scale;
   var thickness = scale;
-  var topH = 7 * scale;
+  var topH = topheit || 7 * scale;
   var poleH = height - topH - baseH;
 
   var baseLB = [x, y];
@@ -147,7 +147,25 @@ function texturedWheel(x, y, r) {
   }
 }
 
+function texturedLamp(x, y, scale) {
+  var color = [0, 0, 175];
 
+  var heit = 40 * scale;
+  var topOffset = 2*scale;
+  var wid = 10 * scale;
+  var topheit = 7 * scale;
+  var smallW = wid - 2 * topOffset;
+
+  lamp(x, y, scale, wid, heit, topOffset, topheit);
+  var n = 10;  
+  var baseLB = [x, y];
+  var topTop = add(baseLB, [topOffset, -heit]);
+  var topB = add(baseLB, [0, topheit - heit]);
+
+  for (i = 0; i < n; i++) {
+    line(add(topTop, [i * smallW/n, 0]), add(topB, [i * wid/n, 0]), color, 1);
+  }
+}
 
 
 
