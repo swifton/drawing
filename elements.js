@@ -17,10 +17,21 @@ function line(point1, point2, color) {
 function circle(x, y, r, color) {
   var shape = document.createElementNS("http://www.w3.org/2000/svg", "circle");
   shape.setAttribute("style", style(color));
-  shape.setAttribute("fill", "white");
+  shape.setAttribute("fill", "none");
   shape.setAttribute("r", r);
   shape.setAttribute("cx", x);
   shape.setAttribute("cy", y);
   svg.appendChild(shape);
 }
 
+
+function arc(x, y, a1, a2, r, color) {
+  var shape = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  var start = x.toString() + ", " + y.toString();
+
+  shape.setAttribute("d", "M " + start + " A " + "76,55" + " 0 1 0 " + "433,278");
+  shape.setAttribute("stroke", "black");
+  shape.setAttribute("stroke-width", 2);
+  shape.setAttribute("fill", "none");
+  svg.appendChild(shape);
+}
