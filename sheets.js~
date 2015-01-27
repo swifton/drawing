@@ -8,7 +8,7 @@ function premature() {
 
 function shit() {
   helmet(100, 100, 2);
-  axe(300, 1000, 16);
+  axe(300, 200, 4);
   iron(600, 200, 5);
   houseWindow(200, 400, 20, 30);
   house(400, 400, 500, 100, 50, 5, 2);
@@ -22,6 +22,7 @@ function texturing() {
   texturedWheel(650, 150, 50);
   texturedWheel(450, 150, 100);
   texturedLamp(800, 350, 8)
+  snowflake(200, 300, 100);
 }
 
 function houses() {

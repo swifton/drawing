@@ -233,6 +233,16 @@ function axe(x, y, scale) {
   rectangle(add(fixLB, [0, offset]), thickness + 2 * offset, -fixL - 2 * offset);
 }
 
+function snowflake(x, y, r) {
+  var n = 8;
+
+  for (i = 0; i < n; i++){ 
+    // unfinished
+  }
+  circle(x, y, r, [0, 0, 0]);
+}
+
+
 
 
 

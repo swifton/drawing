@@ -203,7 +203,7 @@ function axe(x, y, scale) {
   var fixRB = add(fixLB, [thickness + 2*offset, 0]);
 
   var angle = Math.PI / 6;
-  var angleO = angle - Math.PI / 60;
+  var angleO = angle - Math.PI / 70;
   var r0 = scale * 10;
   var r1 = scale * 12;
   var r2 = scale * 15;
@@ -232,6 +232,16 @@ function axe(x, y, scale) {
   rectangle(handleLB, thickness, -length + offset);
   rectangle(add(fixLB, [0, offset]), thickness + 2 * offset, -fixL - 2 * offset);
 }
+
+function snowflake(x, y, r) {
+  var n = 8;
+
+  for (i = 0; i < n; i++){ 
+    //unfinished
+  }
+  circle(x, y, r, [0, 0, 0]);
+}
+
 
 
 

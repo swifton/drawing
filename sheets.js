@@ -22,6 +22,7 @@ function texturing() {
   texturedWheel(650, 150, 50);
   texturedWheel(450, 150, 100);
   texturedLamp(800, 350, 8)
+  snowflake(150, 500, 100);
 }
 
 function houses() {
