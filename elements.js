@@ -59,13 +59,14 @@ function arc(start, end, r, or, large) {
   svg.appendChild(shape);
 }
 
-function rect(x, y, wid, heit) {
+function rect(x, y, wid, heit, fill) {
+  fill = fill || "white";
   var shape = document.createElementNS("http://www.w3.org/2000/svg", "rect");
   shape.setAttribute("x", x);
   shape.setAttribute("y", y);
   shape.setAttribute("width", wid);
   shape.setAttribute("height", heit);
-  shape.setAttribute("fill", "white");
+  shape.setAttribute("fill", fill);
   svg.appendChild(shape);
 }
 

@@ -242,7 +242,16 @@ function snowflake(x, y, r) {
   circle(x, y, r, [0, 0, 0]);
 }
 
+function carpet1(x, y, rectW) {
+  var rectL = 2 * rectW;
 
+  rectangle([x, y], rectL, rectW);
+  rectangle([x + rectL, y], rectW, rectL);
+  rectangle([x, y + rectW], rectW, rectL);
+  rectangle([x + rectW, y + rectL], rectL, rectW);
+
+  rect(x + rectW, y + rectW, rectW, rectW, "black");
+}
 
 
 

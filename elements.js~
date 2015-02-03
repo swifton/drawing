@@ -52,14 +52,15 @@ function arc(start, end, r, or, large) {
   var R = pToS([r, r]);
 
 
-  shape.setAttribute("d", "M " + start + " A " + R + " 0 " + large.toString + " " + or.toString() + " " + end);
+  shape.setAttribute("d", "M " + start + " A " + R + " 0 " + large.toString() + " " + or.toString() + " " + end);
   shape.setAttribute("stroke", "black");
   shape.setAttribute("stroke-width", 2);
   shape.setAttribute("fill", "none");
   svg.appendChild(shape);
 }
 
-function rect(x, y, wid, heit) {
+function rect(x, y, wid, heit, fill) {
+  
   var shape = document.createElementNS("http://www.w3.org/2000/svg", "rect");
   shape.setAttribute("x", x);
   shape.setAttribute("y", y);
