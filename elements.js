@@ -108,7 +108,19 @@ function roundedRectangle(LT, length, height, radius, color) {
   // unfinished
 }
 
-
+function hexagon(center, radius, fill) {
+  var fill = fill || "white";
+  var shape = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+  var points = '';
+  for (i = 0; i < 6; i++) {
+    var angle = i * (2 * Math.PI / 6) + Math.PI / 6;
+    var p = pOnCir(center, radius, angle);
+    points += p[0].toString() + ', ' + p[1].toString() + ' ';
+  }
+  shape.setAttribute("points", points);
+  shape.setAttribute("fill", fill);
+  svg.appendChild(shape);
+}
 
 
 

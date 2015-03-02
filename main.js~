@@ -1,5 +1,5 @@
 var num = 0;
 
-texturing();
+sheets = [carpets, texturing, shit, houses, premature];
 
-sheets = [texturing, shit, houses, premature];
+sheets[num]();

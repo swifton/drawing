@@ -51,7 +51,9 @@ function carpets() {
   }  
 }
 
-
+function hexapix() {
+  hexapix1();
+}
 
 
 

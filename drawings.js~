@@ -250,10 +250,30 @@ function carpet1(x, y, rectW) {
   rectangle([x, y + rectW], rectW, rectL);
   rectangle([x + rectW, y + rectL], rectL, rectW);
 
-  rect([x + rectW, y + rectW]
+  rect(x + rectW, y + rectW, rectW, rectW, "black");
 }
 
+function hexapix1() {
+  var radius = 1;
+  var startX = 50;
+  var startY = 50;
+  var sizeHex = 50;
+  var sizeTetr = 50;
+  var fills = ['lawngreen', 'red', 'dodgerblue', 'black'];
+  var n = fills.length;
+  for (var i = 0; i < sizeHex; i++) {
+    for (var j = 0; j < sizeHex; j++) {
+      hexagon([startX + i * 2 * radius * Math.cos(Math.PI/6), startY +  j * 3 * radius], radius, fills[(i + j) % n]);
+      hexagon([startX + (i * 2 + 1) * radius * Math.cos(Math.PI/6), startY +  (j * 3 + 1.5) * radius], radius, fills[(i + j + 3) % n]);
+    }
+  }
 
+  for (var i = 0; i < sizeTetr; i++) {
+    for (var j = 0; j < sizeTetr; j++) {
+      rect(startX + 500 + i * radius * 2, startY + j * radius * 2, radius * 2, radius * 2, fills[(i + j) % n]);
+    }
+  }
+}
 
 
 
