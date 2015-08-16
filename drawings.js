@@ -34,7 +34,7 @@ function iron(x, y, scale) {
   var baseRT = add(baseRB, [0, - baseH]);
   var handleLB = add(baseLT, [handleOffset,0]);
   
-  fourGon(baseLT, baseRT, baseLB, baseRB);
+    tetragon(baseLT, baseRT, baseLB, baseRB);
   rectangle(handleLB, smallL - handleOffset * 2, -handleH);
 }
 
@@ -107,7 +107,7 @@ function lamp(x, y, scale, wid, heit, topOffset, topheit) {
   var topRB = add(topLB, [width, 0]);
   var topRT = add(topRB, [-topOffset, -topH]);
   var topLT = add(topLB, [topOffset, -topH]);
-  fourGon(topLT, topRT, topLB, topRB, color);
+    tetragon(topLT, topRT, topLB, topRB, color);
 }
 
 function texture(x, y, width, height) {

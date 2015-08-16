@@ -254,7 +254,7 @@ function carpet1(x, y, rectW) {
 }
 
 function hexapix1() {
-  var radius = 1;
+  var radius = 3;
   var startX = 50;
   var startY = 50;
   var sizeHex = 50;

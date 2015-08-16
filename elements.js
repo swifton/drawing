@@ -74,25 +74,10 @@ function clear() {
   rect(0, 0, 2000, 2000);
 }
 
-function rectangle(LT, length, height, color) {
-  var LB = add(LT, [0, height]);
-  var RB = add(LB, [length, 0]);
-  var RT = add(LT, [length, 0]);
-
-  fourGon(LT, RT, LB, RB, color);
-}
-
 function triangle(x, y, z, color) {
   line(x, y, color);
   line(y, z, color);
   line(z, x, color);
-}
-
-function fourGon(LT, RT, LB, RB, color) {
-  line(LT, RT, color);
-  line(LB, RB, color);
-  line(LT, LB, color);
-  line(RT, RB, color);
 }
 
 function roundedRectangle(LT, length, height, radius, color) {

@@ -5,14 +5,32 @@
   </head>  
   <body> 
   
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1500" height="700" id="svg">
+    <canvas id='canvas'></canvas>
+
+    <!-- Platform layer -->
+    <script src="../template/Canvas.js"></script>
+    <script src="../template/Input.js"></script>
+    <script src="../template/FileSaver.js"></script>
+    <script src="../template/Files.js"></script>
+
+    <!-- Some useful functions -->
+    <script src="../template/Utils.js"></script>
+    <script src="../template/Figures.js"></script>
+
+    <!-- Game code -->
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1500" height="700" id="svg">
     </svg>
 
+    <script src="utils.js"></script> 
     <script src="elements.js"></script> 
     <script src="picture.js"></script> 
     <script src="drawings.js"></script> 
     <script src="sheets.js"></script> 
     <script src="main.js"></script> 
     <script src="keyboard.js"></script> 
+
+    <!-- This file launches the game -->
+    <script src="../template/Loop.js"></script>
+    
   </body>  
 </html>  
